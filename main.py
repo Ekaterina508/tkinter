@@ -1,21 +1,9 @@
 import tkinter as tk
 
-def move_by_keys(event):
-    if event.keysym == "Up":
-        canvas.move(oval, 0, -20)
-    elif event.keysym == "Down":
-        canvas.move(oval, 0, 20)
-    elif event.keysym == "Left":
-        canvas.move(oval, -20, 0)
-    elif event.keysym == "Right":
-        canvas.move(oval, 20, 0)
-
-
 win = tk.Tk()
-label = tk.Label(win, text="INGINIRIUM")
-label.pack()
-canvas = tk.Canvas(win, bg="#fff", width=700, height=700)
-oval = canvas.create_oval((300, 300),(400, 400), fill="yellow")
+canvas = tk.Canvas(win, bg="yellow", width=400, height=400)
+for i in range(0, 400, 50):
+    canvas.create_line((0, i), (700, i), fill="black")
+    canvas.create_line((i, 0), (i, 700), fill="black")
 canvas.pack()
-win.bind("<KeyPress>", move_by_keys)
 win.mainloop()
